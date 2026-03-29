@@ -9,12 +9,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
     <style>
         :root {
-            --pgd-purple: #7c3aed;
-            --pgd-purple-dark: #5b21b6;
-            --pgd-purple-light: #8b5cf6;
-            --pgd-pale: #f5f3ff;
+            --pgd-blue: #1565C0;
+            --pgd-blue-dark: #0D47A1;
+            --pgd-blue-light: #42A5F5;
+            --pgd-pale: #e8f0fa;
+            --pgd-border: #d0e4f7;
             --pgd-mid-grey: #AEB7BD;
             --pgd-dark-grey: #425563;
+            --pgd-text: #1A2E4A;
         }
         * { box-sizing: border-box; }
         body {
@@ -25,21 +27,21 @@
 
         /* --- Navbar --- */
         .pgd-navbar {
-            background: var(--pgd-purple);
+            background: var(--pgd-blue-dark);
             padding: 0.75rem 0;
         }
         .pgd-navbar .brand {
             color: #fff;
-            font-size: 1.4rem;
-            font-weight: 700;
             text-decoration: none;
-            letter-spacing: 0.3px;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+        }
+        .pgd-navbar .brand img {
+            height: 38px;
+            width: auto;
+            filter: brightness(0) invert(1);
         }
         .pgd-navbar .brand:hover { opacity: 0.9; }
-        .pgd-navbar .brand i { font-size: 1.5rem; }
         .pgd-navbar .nav-link-login {
             color: #fff;
             border: 1.5px solid #fff;
@@ -52,15 +54,21 @@
         }
         .pgd-navbar .nav-link-login:hover {
             background: #fff;
-            color: var(--pgd-purple);
+            color: var(--pgd-blue-dark);
         }
 
         /* --- Hero --- */
         .hero {
-            background: linear-gradient(135deg, var(--pgd-purple) 0%, var(--pgd-purple-light) 100%);
+            background: linear-gradient(135deg, var(--pgd-blue) 0%, var(--pgd-blue-light) 100%);
             color: #fff;
             padding: 5rem 1rem 4.5rem;
             text-align: center;
+        }
+        .hero .hero-logo {
+            height: 80px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            margin-bottom: 1.5rem;
         }
         .hero h1 {
             font-size: 2.75rem;
@@ -76,7 +84,7 @@
         }
         .hero .btn-hero {
             background: #fff;
-            color: var(--pgd-purple);
+            color: var(--pgd-blue);
             font-weight: 700;
             padding: 0.75rem 2.25rem;
             border-radius: 5px;
@@ -89,15 +97,23 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 16px rgba(0,0,0,0.2);
         }
-        .hero .btn-hero + .btn-hero {
+        .hero .btn-hero-outline {
             margin-left: 1rem;
             background: transparent;
             color: #fff;
             border: 2px solid #fff;
+            font-weight: 700;
+            padding: 0.75rem 2.25rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: transform .15s, background .15s, color .15s;
+            display: inline-block;
         }
-        .hero .btn-hero + .btn-hero:hover {
+        .hero .btn-hero-outline:hover {
             background: #fff;
-            color: var(--pgd-purple);
+            color: var(--pgd-blue);
+            transform: translateY(-2px);
         }
 
         /* --- What is a PGD --- */
@@ -107,7 +123,7 @@
         }
         .what-pgd h2 {
             text-align: center;
-            color: var(--pgd-purple);
+            color: var(--pgd-blue-dark);
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
@@ -135,9 +151,10 @@
             min-width: 250px;
             max-width: 350px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-top: 3px solid var(--pgd-blue);
         }
         .what-pgd .info-card h5 {
-            color: var(--pgd-purple);
+            color: var(--pgd-blue-dark);
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
@@ -155,7 +172,7 @@
         }
         .features h2 {
             text-align: center;
-            color: var(--pgd-purple);
+            color: var(--pgd-blue-dark);
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
@@ -173,14 +190,14 @@
             height: 100%;
         }
         .feature-card:hover {
-            box-shadow: 0 4px 20px rgba(124,58,237,0.1);
+            box-shadow: 0 4px 20px rgba(21, 101, 192, 0.12);
             transform: translateY(-3px);
         }
         .feature-card .icon-wrap {
             width: 64px;
             height: 64px;
             border-radius: 50%;
-            background: var(--pgd-pale);
+            background: linear-gradient(135deg, var(--pgd-blue) 0%, var(--pgd-blue-light) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -188,10 +205,10 @@
         }
         .feature-card .icon-wrap i {
             font-size: 1.6rem;
-            color: var(--pgd-purple);
+            color: #fff;
         }
         .feature-card h5 {
-            color: var(--pgd-purple);
+            color: var(--pgd-blue-dark);
             font-weight: 700;
             margin-bottom: 0.6rem;
         }
@@ -208,7 +225,7 @@
         }
         .lifecycle h2 {
             text-align: center;
-            color: var(--pgd-purple);
+            color: var(--pgd-blue-dark);
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
@@ -237,7 +254,7 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background: var(--pgd-purple);
+            background: linear-gradient(135deg, var(--pgd-blue) 0%, var(--pgd-blue-light) 100%);
             color: #fff;
             display: flex;
             align-items: center;
@@ -247,7 +264,7 @@
             font-size: 1.1rem;
         }
         .lifecycle-step h6 {
-            color: var(--pgd-purple);
+            color: var(--pgd-blue-dark);
             font-weight: 700;
             font-size: 0.85rem;
             margin-bottom: 0.3rem;
@@ -264,7 +281,7 @@
             right: -8px;
             width: 16px;
             height: 2px;
-            background: var(--pgd-purple-light);
+            background: var(--pgd-blue-light);
         }
 
         /* --- Compliance --- */
@@ -274,7 +291,7 @@
         }
         .compliance h2 {
             text-align: center;
-            color: var(--pgd-purple);
+            color: var(--pgd-blue-dark);
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
@@ -298,7 +315,7 @@
             margin-bottom: 1.25rem;
         }
         .compliance-item i {
-            color: var(--pgd-purple);
+            color: var(--pgd-blue);
             font-size: 1.3rem;
             margin-top: 2px;
             flex-shrink: 0;
@@ -322,7 +339,7 @@
         }
         .request-info h2 {
             text-align: center;
-            color: var(--pgd-purple);
+            color: var(--pgd-blue-dark);
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
@@ -355,11 +372,11 @@
         }
         .request-form .form-control:focus,
         .request-form .form-select:focus {
-            border-color: var(--pgd-purple-light);
-            box-shadow: 0 0 0 3px rgba(124,58,237,0.15);
+            border-color: var(--pgd-blue-light);
+            box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.15);
         }
         .btn-pgd {
-            background: var(--pgd-purple);
+            background: var(--pgd-blue);
             color: #fff;
             border: none;
             padding: 0.7rem 2rem;
@@ -370,7 +387,7 @@
             transition: background .2s;
             width: 100%;
         }
-        .btn-pgd:hover { background: var(--pgd-purple-dark); color: #fff; }
+        .btn-pgd:hover { background: var(--pgd-blue-dark); color: #fff; }
         .btn-pgd:disabled { opacity: 0.6; cursor: not-allowed; }
 
         /* --- CTA --- */
@@ -380,7 +397,7 @@
             background: #fff;
         }
         .demo-cta h2 {
-            color: var(--pgd-purple);
+            color: var(--pgd-blue-dark);
             font-weight: 700;
             margin-bottom: 0.75rem;
         }
@@ -390,7 +407,7 @@
             font-size: 1.05rem;
         }
         .btn-demo {
-            background: var(--pgd-purple-light);
+            background: linear-gradient(135deg, var(--pgd-blue) 0%, var(--pgd-blue-light) 100%);
             color: #fff;
             font-weight: 700;
             padding: 0.75rem 2.5rem;
@@ -398,13 +415,17 @@
             text-decoration: none;
             font-size: 1.05rem;
             display: inline-block;
-            transition: background .2s;
+            transition: transform .15s, box-shadow .15s;
         }
-        .btn-demo:hover { background: var(--pgd-purple); color: #fff; }
+        .btn-demo:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(21, 101, 192, 0.3);
+            color: #fff;
+        }
 
         /* --- Footer --- */
         .pgd-footer {
-            background: var(--pgd-purple);
+            background: var(--pgd-blue-dark);
             color: rgba(255,255,255,0.85);
             padding: 2.5rem 1rem 1.5rem;
             font-size: 0.9rem;
@@ -418,6 +439,11 @@
             font-size: 1.1rem;
             color: #fff;
             margin-bottom: 0.5rem;
+        }
+        .pgd-footer .footer-brand img {
+            height: 28px;
+            width: auto;
+            filter: brightness(0) invert(1);
         }
         .pgd-footer hr {
             border-color: rgba(255,255,255,0.2);
@@ -439,7 +465,7 @@
             .request-form { padding: 1.75rem 1.25rem; }
             .lifecycle-step:not(:last-child)::after { display: none; }
             .lifecycle-steps { gap: 1rem; }
-            .hero .btn-hero + .btn-hero { margin-left: 0; margin-top: 0.75rem; }
+            .hero .btn-hero-outline { margin-left: 0; margin-top: 0.75rem; }
         }
     </style>
 </head>
@@ -449,8 +475,7 @@
 <nav class="pgd-navbar">
     <div class="container d-flex justify-content-between align-items-center">
         <a href="/" class="brand">
-            <i class="bi bi-shield-check"></i>
-            PGD Hub
+            <img src="/images/pgdhub-logo.svg" alt="PGD Hub" />
         </a>
         <a href="https://homecareconnects.co.uk" class="nav-link-login"><i class="bi bi-box-arrow-in-right me-1"></i>Sign In</a>
     </div>
@@ -459,14 +484,14 @@
 <!-- Hero -->
 <section class="hero">
     <div class="container">
-        <h1><i class="bi bi-shield-check me-2"></i>PGD Hub</h1>
+        <img src="/images/pgdhub-logo.svg" alt="PGD Hub" class="hero-logo" />
         <p class="tagline">
             Digital Patient Group Direction management for the NHS.
             Streamline PGD governance, staff authorisations, competency tracking and
             administration recording with a purpose-built platform.
         </p>
         <a href="#request-info" class="btn-hero">Request Information</a>
-        <a href="https://homecareconnects.co.uk" class="btn-hero">Sign In</a>
+        <a href="https://homecareconnects.co.uk" class="btn-hero-outline">Sign In</a>
     </div>
 </section>
 
@@ -702,7 +727,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="footer-brand">
-                    <i class="bi bi-shield-check me-1"></i> PGD Hub
+                    <img src="/images/pgdhub-logo.svg" alt="PGD Hub" />
                 </div>
                 <p class="mb-1">Digital Patient Group Direction management for the NHS.</p>
                 <p class="mb-0" style="opacity:0.7;">A product by <strong>Auxtechna</strong></p>
@@ -752,7 +777,6 @@
             btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Sending...';
 
             try {
-                // For now, show a success message (backend endpoint can be added later)
                 showToast('Thank you! Your request has been received. We\'ll be in touch shortly.', true);
                 form.reset();
                 form.classList.remove('was-validated');
