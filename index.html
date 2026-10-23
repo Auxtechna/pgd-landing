@@ -391,6 +391,56 @@
         .btn-pgd:disabled { opacity: 0.6; cursor: not-allowed; }
 
         /* --- CTA --- */
+        .watch {
+            padding: 4rem 0;
+            background: var(--pgd-pale);
+            text-align: center;
+        }
+        .watch .section-sub {
+            color: var(--pgd-dark-grey);
+            font-size: 1.05rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .watch h2 {
+            color: var(--pgd-blue-dark);
+            font-weight: 700;
+        }
+        .watch-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+            gap: 1.5rem;
+            align-items: start;
+            margin-top: 1.5rem;
+        }
+        .watch-main .ratio,
+        .watch-short {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 18px rgba(13, 71, 161, 0.15);
+            background: #000;
+        }
+        .watch-short {
+            aspect-ratio: 9 / 16;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        .watch-short iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .watch-caption {
+            font-size: 0.9rem;
+            color: var(--pgd-dark-grey);
+            margin-top: 0.6rem;
+        }
+        @media (max-width: 767.98px) {
+            .watch-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
         .demo-cta {
             padding: 4rem 1rem;
             text-align: center;
@@ -491,7 +541,37 @@
             administration recording with a purpose-built platform.
         </p>
         <a href="#request-info" class="btn-hero">Request Information</a>
+        <a href="#watch" class="btn-hero-outline"><i class="bi bi-play-circle me-1"></i>Watch the walkthrough</a>
         <a href="https://demo.homecareconnects.co.uk/Account/Login" class="btn-hero-outline">Sign In</a>
+    </div>
+</section>
+
+<!-- Watch -->
+<section class="watch" id="watch">
+    <div class="container">
+        <h2>See PGD Hub in action</h2>
+        <p class="section-sub">
+            A 13 minute walkthrough of PGD Hub, from adopting a template to authorising staff, and
+            short clips of single features.
+        </p>
+        <div class="watch-grid">
+            <div class="watch-main">
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube-nocookie.com/embed/dpFdSjGnvtg?rel=0" title="PGD Hub walkthrough (13 minutes)"
+                            loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p class="watch-caption">The full walkthrough. <a href="https://youtu.be/dpFdSjGnvtg" target="_blank" rel="noopener">Watch on YouTube</a></p>
+            </div>
+            <div class="watch-shorts">
+                <div class="watch-short">
+                    <iframe src="https://www.youtube-nocookie.com/embed/xSV0Cdu69DI?rel=0" title="PGD Hub short clip"
+                            loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p class="watch-caption">Short clip. <a href="https://youtube.com/shorts/xSV0Cdu69DI" target="_blank" rel="noopener">Watch on YouTube</a></p>
+            </div>
+        </div>
     </div>
 </section>
 
