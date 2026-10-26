@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.patientgroupdirection.co.uk/sitemap.xml
+Sitemap: https://www.patientgroupdirections.co.uk/sitemap.xml
