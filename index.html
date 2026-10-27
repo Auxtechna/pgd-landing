@@ -885,11 +885,25 @@
             btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Sending...';
 
             try {
-                showToast('Thank you! Your request has been received. We\'ll be in touch shortly.', true);
-                form.reset();
-                form.classList.remove('was-validated');
+                // The same lead form the HomeCare Connects page uses. It emails the
+                // platform inbox; "source" tells it the request is about PGD Hub.
+                const data = Object.fromEntries(new FormData(form));
+                data.source = 'PGD Hub';
+                const resp = await fetch('https://www.homecareconnects.co.uk/Home/RequestInfo', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const result = await resp.json();
+                if (resp.ok && result.success) {
+                    showToast('Thank you! Your request has been sent. We\'ll be in touch shortly.', true);
+                    form.reset();
+                    form.classList.remove('was-validated');
+                } else {
+                    showToast(result.message || 'Something went wrong. Please try again, or email info@homecareconnects.co.uk.', false);
+                }
             } catch {
-                showToast('Could not send your request. Please try again later.', false);
+                showToast('Could not send your request. Please try again later, or email info@homecareconnects.co.uk.', false);
             } finally {
                 btn.disabled = false;
                 btn.innerHTML = '<i class="bi bi-send me-1"></i> Send Request';
